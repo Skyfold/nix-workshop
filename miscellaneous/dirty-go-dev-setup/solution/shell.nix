@@ -13,6 +13,5 @@ in
     ];
     shellHook = ''
       export GOPATH=$(pwd);
-      export PATH=$GOPATH/bin:$PATH
     '';
   }
