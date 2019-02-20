@@ -35,3 +35,37 @@ it out yourself (with lots of hints) and a solution to compare with.
     - creating minimal docker images
 - miscellaneous
   - Using Dhall "instead" of Nix
+
+## Note
+
+For those coming to the workshop this was written for or for anyone
+who wants to use this to run a Nix workshop, please create a `tmp.nix`
+with the following contents:
+
+```
+let
+  tarball-1809 = fetchTarball {
+    url = https://github.com/NixOS/nixpkgs/archive/18.09.tar.gz;
+    sha256 = "1ib96has10v5nr6bzf7v8kw7yzww8zanxgw2qi1ll1sbv6kj6zpd";
+  };
+
+  pkgs = import tarball-1809 { };
+
+in
+  with pkgs;
+  stdenv.mkDerivation {
+    name = "tmp";
+    buildInputs = [
+      go
+      haskellPackages.cabal-install 
+      haskellPackages.hpack
+      haskell.compiler.ghc822
+      docker
+      dhall
+    ];
+  }
+```
+
+Then run `nix-build tmp.nix`. This will cache most of the derivations
+you will need for this workshop. It will reduce the time you spend
+waiting for your nix expressions to evaluate.
