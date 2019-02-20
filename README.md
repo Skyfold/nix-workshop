@@ -38,7 +38,11 @@ it out yourself (with lots of hints) and a solution to compare with.
 
 ## Note
 
-For those coming to the workshop this was written for or for anyone
+I have created a cachix nix-workspace: https://nix-workshop.cachix.org/
+There are instructions at the link to set it up. This has all the
+derivations that your nix files will depend on.
+
+Option B) For those coming to the workshop this was written for or for anyone
 who wants to use this to run a Nix workshop, please create a `tmp.nix`
 with the following contents:
 

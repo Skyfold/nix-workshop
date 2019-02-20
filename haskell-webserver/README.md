@@ -22,6 +22,9 @@ pkgs = import tarball-1809 { };
 Note: you don't have to do them in order. Except, the Docker one
 depends on the "deploy-to-vm" challenge.
 
+Note2: The code is from this tutorial: 
+https://www.schoolofhaskell.com/school/advanced-haskell/building-a-file-hosting-service-in-yesod/part%204
+
 ## Building Projects in Haskell
 
 Note: when starting a new project you usually start with a nix-shell
