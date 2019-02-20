@@ -63,14 +63,10 @@ in
       docker
       dhall
     ];
-    builder = builtins.toFile "builder.sh" "
-      source $stdenv/setup
-      touch $out
-    ";
   }
 ```
 
-Then run `nix-build --no-out-link tmp.nix`. This will cache most of the derivations
+Then run `nix-shell tmp.nix`. This will cache most of the derivations
 you will need for this workshop. It will reduce the time you spend
 waiting for your nix expressions to evaluate. After it completes it
 will give you a bash shell, just exit the shell.
