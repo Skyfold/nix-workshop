@@ -52,6 +52,26 @@ is so Hydra can build your tool (if you ever go down that route).
 Note2: you can run the result with `./result/bin/webserver` (the
 Haskell-Nix tooling puts the executable inside of `bin`
 
+Note3: you will want to use `ghc822` and its package set.
+
+### Adding dash-haskell
+
+If you try to add `dash-haskell` to your `buildInputs` it will fail to
+build because the latest build of `dash-haskell` on Nixpkgs is broken.
+Now, we still want to use it to create our docsets, but we don't want
+to try using a whole new package set just for this one tool. This,
+mini, challenge is about finding the right revision and adding it to
+your `shell.nix`.
+
+You will want to lookup `fetchFromGitHub`. Also, for the sha256, just
+put in something random of the correct length and then from the error
+you can populate the correct sha256. Yes, this is not a secure or nice
+way to get the sha256 (I welcome any suggestions on how to do this
+properly).
+
+Note: This is a long rabbit hole that will show you the ugly side of
+getting poorly maintained projects to build.
+
 ## Lets deploy It!
 
 Now that you have gotten a development environment and can build the
